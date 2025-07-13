@@ -13,8 +13,8 @@ for (const file of commandFiles) {
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
 // UŻYJ GUILD_ID, żeby rejestrować lokalnie tylko dla Twojego serwera
-const GUILD_ID = 'TWOJE_GUILD_ID';
-const CLIENT_ID = 'TWOJE_CLIENT_ID'; // ID Emi z Discord Developer Portal
+const GUILD_ID = '1364766750511595600';
+const CLIENT_ID = '1393600421087547442'; // ID Emi z Discord Developer Portal
 
 (async () => {
   try {
