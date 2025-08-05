@@ -1,0 +1,42 @@
+{
+  "Needy": {
+    "punkty": 118,
+    "limit": 199
+  },
+  "Beru": {
+    "punkty": 112,
+    "limit": 199
+  },
+  "Rina": {
+    "punkty": 109,
+    "limit": 199
+  },
+  "Venaaris": {
+    "punkty": 80,
+    "limit": 99
+  },
+  "Magnum": {
+    "punkty": 83,
+    "limit": 99
+  },
+  "Aro": {
+    "punkty": 74,
+    "limit": 99
+  },
+  "Fortix": {
+    "punkty": 67,
+    "limit": 99
+  },
+  "Night": {
+    "punkty": 73,
+    "limit": 99
+  },
+  "Vivcia": {
+    "punkty": 55,
+    "limit": 99
+  },
+  "Yukiro": {
+    "punkty": 38,
+    "limit": 50
+  }
+}

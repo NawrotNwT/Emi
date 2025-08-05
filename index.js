@@ -1,13 +1,19 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const express = require('express');
 require('dotenv').config();
 
-// Webserver
+const express = require('express');
 const app = express();
-app.get('/', (req, res) => res.send('Emi żyje!'));
-app.listen(3000, () => console.log('🌐 Webserver działa'));
+
+// Webserver do pingu z UptimeRobot
+app.get('/', (req, res) => {
+  res.send('🌐 Emi żyje i czuwa...');
+});
+app.listen(3000, () => {
+  console.log('✅ Webserver aktywny');
+});
+
+const fs = require('fs');
+const path = require('path');
+const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
@@ -15,19 +21,19 @@ const client = new Client({
 
 client.commands = new Collection();
 
-// Wczytywanie komend z folderu "commands"
+// Wczytywanie komend z folderu commands
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
-  const filePath = path.join(commandsPath, file);
-  const command = require(filePath);
+  const command = require(path.join(commandsPath, file));
   if ('data' in command && 'execute' in command) {
     client.commands.set(command.data.name, command);
   }
 }
 
-client.on('ready', () => {
-  console.log(`✅ Emi online jako ${client.user.tag}`);
+client.once('ready', () => {
+  console.log(`🤖 Emi jest online jako ${client.user.tag}`);
 });
 
 client.on('interactionCreate', async interaction => {
@@ -39,7 +45,7 @@ client.on('interactionCreate', async interaction => {
     await command.execute(interaction);
   } catch (error) {
     console.error(error);
-    await interaction.reply({ content: 'Coś poszło nie tak 💥', ephemeral: true });
+    await interaction.reply({ content: '❌ Błąd podczas wykonywania komendy.', ephemeral: true });
   }
 });
 
