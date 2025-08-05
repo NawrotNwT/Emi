@@ -20,7 +20,6 @@ module.exports = {
     ];
 
     const wylosowane = miejsca[Math.floor(Math.random() * miejsca.length)];
-
     await interaction.reply(`📍 **Wylosowane miejsce:** ${wylosowane}`);
-  },
+  }
 };

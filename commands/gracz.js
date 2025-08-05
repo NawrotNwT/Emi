@@ -21,7 +21,6 @@ module.exports = {
     ];
 
     const wylosowany = gracze[Math.floor(Math.random() * gracze.length)];
-
     await interaction.reply(`🎯 **Wylosowany gracz:** ${wylosowany}`);
-  },
+  }
 };

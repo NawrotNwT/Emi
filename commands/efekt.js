@@ -18,7 +18,6 @@ module.exports = {
     ];
 
     const los = efekty[Math.floor(Math.random() * efekty.length)];
-
     await interaction.reply(`🎲 **Wylosowany efekt:** ${los}`);
-  },
+  }
 };
