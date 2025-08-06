@@ -29,20 +29,20 @@ module.exports = {
     const roll = Math.floor(Math.random() * 100);
 
     let result;
-    if (roll < 15) {
+    if (roll < 5) {
       result = { type: 'miss', message: '❌ Nic nie złapałeś. Spróbuj jutro!' };
     } else if (roll < 90) {
-      const available = pokemonList.filter(p => p.id <= 143);
+      const available = pokemonList.filter(p => p.id >= 1 && p.id <= 143);
       const chosen = available[Math.floor(Math.random() * available.length)];
       result = { type: 'normal', pokemon: chosen };
-    } else if (roll < 98) {
-      const available = pokemonList.filter(p => p.rare);
+    } else if (roll < 99) {
+      const available = pokemonList.filter(p => p.id >= 144 && p.id <= 149);
       const chosen = available[Math.floor(Math.random() * available.length)];
       result = { type: 'rare', pokemon: chosen };
     } else {
-      const available = pokemonList.filter(p => p.legendary);
+      const available = pokemonList.filter(p => p.id === 150 || p.id === 151);
       const chosen = available[Math.floor(Math.random() * available.length)];
-      result = { type: 'legendary', pokemon: chosen };
+      result = { type: 'mythical', pokemon: chosen };
     }
 
     // Obsługa wyniku
